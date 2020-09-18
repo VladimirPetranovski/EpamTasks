@@ -6,10 +6,9 @@ package by.petranovski.basics_of_software_code_development.linear_programs.task_
 
 public class RealNumberChangePlace {
     public static void main(String[] args) {
-        double r = 123.456;
-        int n = (int) r;
-        int d = (int) ((r - n) * 1000);
-        double z = (double) d + ((double) n / 1000);
-        System.out.println(z);
+        task(123.456);
+    }
+    private static void task(double r) {
+        System.out.println((double)((int)((r - (int) r) * 1000)) + (double)((int) r) / 1000);
     }
 }
