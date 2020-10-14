@@ -9,24 +9,34 @@ import java.util.Scanner;
 class RangeFromMToN {
     private static void dividers(int m, int n) {
         if (!isIntNumbers(m, n)) {
-            System.out.println("Please enter integers more zero and n more two:");
+            System.out.println("Please enter integers more zero:");
         }
+        if (!isNMinusMMoreOne(m , n)) {
+            System.out.println("Please enter range more:");
+        }
+        findDividers(m, n);
+    }
+
+    private static boolean isIntNumbers(int m, int n) {
+        return m > 0 && n > 0;
+    }
+
+    private static boolean isDividerEqualsOneOrEqualsDivider(int numbers, int m, int n) {
+        return numbers != m && numbers != n;
+    }
+
+    private static boolean isNMinusMMoreOne(int m, int n) {
+        return n - m > 1;
+    }
+
+    private static void findDividers(int m, int n) {
         for (int i = m; i < n; i++) {
             for (int j = 2; j < n; j++) {
                 if (isDividerEqualsOneOrEqualsDivider(j, m, n) && i % j == 0) {
                     System.out.println("For " + i + " - " + j);
                 }
-            }
+           }
         }
-        System.out.println("Please enter range more:");
-    }
-
-    private static boolean isIntNumbers(int m, int n) {
-        return m > 0 && n > 0 && n > 2;
-    }
-
-    private static boolean isDividerEqualsOneOrEqualsDivider(int numbers, int m, int n) {
-        return numbers != m && numbers != n;
     }
 
     public static void main(String[] args) {
